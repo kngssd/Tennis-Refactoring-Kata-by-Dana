@@ -11,11 +11,21 @@ public class TennisGame6 implements TennisGame {
 
     @Override
     public void wonPoint(String playerName) {
-        if (playerName.equals("player1"))
+        if (playerName.equals("player1")) {
             player1Score++;
-        else
+        } else {
             player2Score++;
+        }
+    }
 
+    public String getScore(){
+        if (player1Score == player2Score) {
+            return tieScore();
+        } else if (player1Score >= 4 || player2Score >= 4) {
+            return endGameScore();
+        } else {
+            return regularScore();
+        }
     }
 
     // tie score
@@ -42,43 +52,19 @@ public class TennisGame6 implements TennisGame {
         }
     }
 
-
-    public String getScore(){
-        if (player1Score == player2Score) {
-            return tieScore();
-        } else if (player1Score >= 4 || player2Score >= 4) {
-
-        }
+    // regular score
+    private String regularScore() {
+        String score1 = regularScoreDescription(player1Score);
+        String score2 = regularScoreDescription(player2Score);
+        return score1 + "-" + score2;
     }
 
-
-        {
-
-
-
-            result = tieScore;
-        }
-        else if
-        {
-
-        }
-        else
-        {
-            // regular score
-            private String regularScoreDescription(int score) {
-                return switch (score) {
-                    case 0 -> "Love";
-                    case 1 -> "Fifteen";
-                    case 2 -> "Thirty";
-                    default -> "Deuce";
-                };
-        }
-
-            regularScore = score1 + "-" + score2;
-
-            result = regularScore;
-        }
-
-        return result;
+    private String regularScoreDescription(int score) {
+        return switch (score) {
+            case 0 -> "Love";
+            case 1 -> "Fifteen";
+            case 2 -> "Thirty";
+            default -> "Deuce";
+        };
     }
 }
