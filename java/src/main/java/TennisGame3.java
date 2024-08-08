@@ -13,38 +13,39 @@ public class TennisGame3 implements TennisGame {
     }
 
     public String getScore() {
-        boolean isGameOver = !((player1Points < 4 && player2Points < 4) && !(player1Points + player2Points == 6));
+        boolean isGameOver = ((player1Points < 4 && player2Points < 4) && !(player1Points + player2Points == 6));
         if (isGameOver) {
             String score = PointsNames[player1Points];
             if (player1Points == player2Points) {
                 return score + "-All";
             } else {
-               return score + "-" + PointsNames[player2Points];
+                return score + "-" + PointsNames[player2Points];
+
+            }} else {
+                if (player1Points == player2Points)
+                    return "Deuce";
             }
-        } else {
-            if (player1Points == player2Points)
-                return "Deuce";
 
             String leader;
             if (player1Points > player2Points) {
-               leader = player1Name;
+                leader = player1Name;
             } else {
                 leader = player2Name;
             }
-        }
-            boolean isAdvantage = (player1Points-player2Points)*(player1Points-player2Points) == 1;
+
+            boolean isAdvantage = (player1Points - player2Points) * (player1Points - player2Points) == 1;
             if (isAdvantage) {
                 return "Advantage " + leader;
             } else {
-            return "Win for " + leader;
+                return "Win for " + leader;
+            }
         }
-    }
     
     public void wonPoint(String playerName) {
-        if (playerName == "player1")
-            this.player1Points += 1;
+        if (playerName.equals("player1"))
+            this.player1Points++;
         else
-            this.player2Points += 1;
+            this.player2Points++;
     }
 
 }
