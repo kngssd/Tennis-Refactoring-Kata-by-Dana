@@ -45,7 +45,6 @@ public class TennisGame3 implements TennisGame {
             this.player1Points += 1;
         else
             this.player2Points += 1;
-        
     }
 
 }
