@@ -6,7 +6,6 @@ public class TennisGame3 implements TennisGame {
     private String player1Name;
     private String player2Name;
     private static String[] PointsNames = new String[]{"Love", "Fifteen", "Thirty", "Forty"};
-
     public TennisGame3(String player1Name, String player2Name) {
         this.player1Name = player1Name;
         this.player2Name = player2Name;
